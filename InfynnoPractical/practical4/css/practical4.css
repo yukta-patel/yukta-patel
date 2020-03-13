@@ -1,0 +1,185 @@
+
+/* header starts from here */
+.header
+{
+    height: 5%;
+    width: 100%;
+    background-color: black;
+}
+
+.header-left
+{
+    height: 95%;
+    width: 20%;
+    float: left;
+    border: 1px solid black;
+}
+
+.header-left-img
+{
+    margin-left: 10px;
+    height: 35px;
+    width: 80px;
+}
+
+.header-right
+{
+    height: 95%;
+    width: 20%;
+    float: right;
+    border: 1px solid black;
+}
+
+.header-right-img
+{
+    margin: 7px 0px 0px 210px;
+    height: 20px ;
+    width: 70px;
+}
+
+/* header ends from here */
+
+/* body css starts from here */
+
+.body
+{
+    height: 85%;
+    width: 100%;
+    /* border: 1px solid black; */
+    margin-top: 5px;
+}
+
+.body-left
+{   
+    margin: 15px 10px 0px 5px;
+    height: 95%;
+    width: 29%;
+    float: left;
+    /* border: 1px solid black; */
+}
+
+.body-left-top
+{
+    margin: 8px;
+    height: 75%;
+    width: 95%;
+    /* border: 1px solid black; */
+    float: left;
+}
+
+.body-left-bottom
+{
+    margin: 8px;
+    height: 12%;
+    width: 95%;
+    /* border: 1px solid black; */
+    float: left;
+
+}
+
+
+.body-middle
+{
+    margin: 15px 10px 0px 5px;
+    height: 95%;
+    width: 39%;
+    float: left;
+    /* border: 1px solid black; */
+
+}
+
+.body-middle-top
+{ 
+    margin: 15px 0px 0px 15px;
+    height:22% ;
+    width:95% ;
+    /* border: 1px solid black; */
+    
+
+}
+
+.body-middle-middle
+{
+    margin: 15px 0px 0px 15px;
+    height:50% ;
+    width:95%;
+    /* border: 1px solid black; */
+}
+
+.body-middle-bottom
+{
+    margin: 15px 0px 0px 15px;
+    height:15% ;
+    width:95% ;
+    /* border: 1px solid black; */
+
+}
+
+.button1
+{
+    height: 70%;
+    width: 100%;
+    color: white;
+    background-color: rgb(46, 5, 46);
+    font-size: 18;
+}
+
+.body-right
+{
+    margin: 15px 0px 0px 5px;
+    height: 95%;
+    width: 29%;
+    float: left;
+    /* border: 1px solid black; */
+
+}
+
+.body-right1
+{
+    height: 10%;
+    width: 99%;
+    border-bottom: 2px solid black;
+    margin-top: 5px;
+    margin-bottom: 30px;
+}
+
+.body-right2
+{
+    height: 14%;
+    width: 99%;
+    border-bottom: 1px solid black;
+    margin-top: 5px;
+}
+
+.body-right3
+{
+    height: 9%;
+    width: 99%;
+    border-bottom: 1px solid black;
+    margin-top: 5px;
+}
+
+.body-right4
+{
+    height: 40%;
+    width: 99%;
+    /* border: 1px solid black; */
+    margin-top: 5px;
+
+}
+
+
+
+/* body css ends from here */
+
+/* footer css starts from here */
+
+.footer
+{
+    height: 6%;
+    width: 100%;
+    /* border: 1px solid black; */
+    margin-top: 5px;
+}
+
+/* footer css ends from here */
