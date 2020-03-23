@@ -376,6 +376,38 @@ textarea {
     margin-top: -65px;
 }
 
+.sign-up-btn
+{
+    width: 150px;
+}
+
+.font
+{
+    font-family: sans-serif;
+}
+
+.card-btn
+{
+    
+    border: 2px solid #777777 !important;
+    width: 150px;
+}
+
+.ftr-bgcolor
+{
+    background-color: #e89980;
+}
+
+.ftr-clr
+{
+    background-color: rgba(255,255,255,0.15) !important;
+}
+
+.ftr-btn-clr
+{
+    color: #e89980 !important;
+}
+
 
 
 
