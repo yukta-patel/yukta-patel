@@ -500,41 +500,12 @@ header.portfolio h5
 }
 
 
-/* ul.dates .date:after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    right: -1.2em;
-    border-left: solid 1.25em #d52349;
-    border-top: solid 1.8em transparent;
-    border-bottom: solid 1.8em transparent;
-}
+
 
 ul.dates .date {
     display: block;
     position: absolute;
     left: 0;
-    top: 1.3em;
-    background-color: #d52349;
-    height: 3.5em;
-    text-align: center;
-    color: #fff;
-    line-height: 1em;
-    border-top-left-radius: 5px;
-    border-bottom-left-radius: 5px;
-    padding: 0.5em 0.75em 0 1em;
-} */
-
-ul.dates {
-    list-style: none;
-    padding-left: 0;
-}
-
-ul.dates .date {
-    display: block;
-    position: absolute;
-    left: 0;
-    top: 1.3em;
     background-color: #d52349;
     height: 3.5em;
     text-align: center;
@@ -544,16 +515,11 @@ ul.dates .date {
     border-bottom-left-radius: 5px;
     padding: 0.5em 0.75em 0 1em;
 }
-
-ul.dates li:first-child .date {
-    top: 0;
-}
-
-ul.dates {
+ul.dates 
+{
     list-style: none;
     padding-left: 0;
 }
-
 ul.dates .date:after {
     content: '';
     position: absolute;
@@ -562,4 +528,24 @@ ul.dates .date:after {
     border-left: solid 1.25em #d52349;
     border-top: solid 1.8em transparent;
     border-bottom: solid 1.8em transparent;
+}
+ul.dates h5
+{
+    margin-left: 100px;
+}
+ul.dates p
+{
+    margin-left: 100px;
+}
+
+
+.ftr-img
+{
+    width: 100%;
+}
+
+.ftr-btn
+{
+    background-color: #d52349 !important;
+    font-size: 16px !important;
 }
