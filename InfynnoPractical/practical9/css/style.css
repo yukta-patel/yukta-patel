@@ -446,10 +446,44 @@ textarea {
 }
 
 
+header.portfolio 
+{
+    position: relative;
+    text-align: center;
+    border-top: solid 1px #ccc;
+    top: 1em;
+    margin: 0 0 3em 0;
+}
+header.portfolio h5 
+{
+    position: relative;
+    top: -0.65em;
+    display: inline;
+    margin: 0;
+    padding: 0 1em 0 1em;
+}
+
 .portfolio-btn
 {
     background-color: black !important;
-    font-size: 17px !important;
+    font-size: 16px !important;
+}
+
+.blog-btn1
+{
+    background-color: #d52349 !important;
+    font-size: 16px !important;
+}
+
+.blog-btn2
+{
+    background-color: black !important;
+    font-size: 16px !important;
+}
+
+.fr
+{
+    background-color: black !important;
 }
 
 .border1
@@ -457,3 +491,75 @@ textarea {
     border: 1px solid black;
 }
 
+
+
+
+.icon-opacity
+{
+    opacity: 0.35;
+}
+
+
+/* ul.dates .date:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: -1.2em;
+    border-left: solid 1.25em #d52349;
+    border-top: solid 1.8em transparent;
+    border-bottom: solid 1.8em transparent;
+}
+
+ul.dates .date {
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 1.3em;
+    background-color: #d52349;
+    height: 3.5em;
+    text-align: center;
+    color: #fff;
+    line-height: 1em;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    padding: 0.5em 0.75em 0 1em;
+} */
+
+ul.dates {
+    list-style: none;
+    padding-left: 0;
+}
+
+ul.dates .date {
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 1.3em;
+    background-color: #d52349;
+    height: 3.5em;
+    text-align: center;
+    color: #fff;
+    line-height: 1em;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    padding: 0.5em 0.75em 0 1em;
+}
+
+ul.dates li:first-child .date {
+    top: 0;
+}
+
+ul.dates {
+    list-style: none;
+    padding-left: 0;
+}
+
+ul.dates .date:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: -1.2em;
+    border-left: solid 1.25em #d52349;
+    border-top: solid 1.8em transparent;
+    border-bottom: solid 1.8em transparent;
+}
