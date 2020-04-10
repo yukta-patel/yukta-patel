@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Practical</title>
+</head>
+<body>
+    <h2>JavaScript Objects and Data types</h2>
+
+    <script>
+
+    // Object method1    
+
+        let student=new Object({name:'yukta', eno:161200116044})
+        alert(student.name);
+        student.eno=100;
+        alert(student.eno);
+
+
+        alert(Object.keys(student));//name.eno
+        alert(Object.values(student));//yukta,161200116044
+        alert(Object.entries(student));
+
+
+
+    // Object method2
+
+        let employee={
+            first_name:'Yukta',
+            sur_name:'Patel',
+            "last name":'Bipinbhai',
+
+            // nesting of object
+            education:{
+                std10 :95 ,
+                std12 :80
+            }
+        };
+        delete employee.sur_name;
+        alert(employee.sur_name);//undefined
+        alert(employee["last name"]); //square bracket
+        alert("first_name" in employee);//true
+        alert(employee.education.std12);//80
+
+
+    // for loop for display all the key value in object
+
+
+        for(let key in employee.education)
+        {
+            alert(key);
+            alert(employee.education[key]);
+        }
+
+    // property value shorthand
+
+        function value(a1,a2){
+            return{
+                value1: a1,
+                value2: a2,
+            };
+        }
+        let total=value(2,5);
+        alert(total.value1);
+
+    // constructor
+
+        function Sum(a,b)
+        {
+            this.a=a;
+            this.b=b;
+            this.c=a+b;
+            
+        }
+        let sum = new Sum(1000,2000);
+        alert(sum.a);
+        alert(sum.b);
+        alert(sum.c);
+
+    //methods of primitive
+
+        let fruit={
+            orange: function(){
+                alert("Orange");
+                fruitName="orange";
+                price=5.2351462;
+                }
+        };
+        fruit.orange();
+        alert(fruitName.toUpperCase());//ORANGE
+        alert(price.toFixed(3));
+        alert(3e9)//3 billions
+        let ms = 1e-6; // six zeroes to the left from 1
+        alert(ms);
+        alert( 1000000..toString(36) ); // two dots for directly convert number
+        alert(Math.floor(price));//flooring value
+        alert(Math.ceil(price));//ceiling value
+        alert(Math.round(price));//round off
+        
+
+    //string
+
+        let str="javascript tutorial";
+        let str1="hello";
+        let srt2="hi";
+
+        alert(str.length);
+        alert(str.toUpperCase());//JAVASCRIPT
+        alert( str[0] ); // j
+        alert( str.charAt(0) ); // j
+        alert( str[str.length - 1] );//t
+        alert( str.indexOf('tutorial') );//11
+        alert( "javascript".includes("tutorial") );//false
+        alert( "javascript".startsWith("j") );//true
+        alert( "javascript".endsWith("j") );//false
+
+        alert(str1>=srt2);//false
+
+    //array
+
+        let vegetable = ["potato", "tomato", "onion" ,"lamon"];
+        alert(vegetable[0]);//potato
+        vegetable[3]="garlic";
+        alert(vegetable[3]);//garlic
+        alert(vegetable.length);//4
+        vegetable.push("ladyfinger");
+        alert(vegetable);
+        vegetable.pop();
+        alert(vegetable);
+        vegetable.shift('potato');
+        alert(vegetable);
+        vegetable.unshift('potato');
+        alert(vegetable);
+
+        //lopping of array
+        for (let i = 0; i < vegetable.length; i++) {
+        alert( vegetable[i] );
+        }
+
+        //splice
+        vegetable.splice(0, 2,"chili","pumkin","capsicum");//splice and merge
+        alert(vegetable);
+
+
+        //multidimentional array
+        let matrix = [
+        [1, 2, 3],
+        [4, 5, 6],
+        [7, 8, 9]
+        ];
+        alert( matrix[1][1] );
+
+
+    //map.set,get
+
+        let vegie = new Map([
+        ['cucumber', 100],
+        ['tomato', 200],
+        ['onion',300],
+        ['potato',400]
+        ]);
+        alert(vegie.get('cucumber'));//100
+        vegie.set('lamon',500);
+        alert(vegie.get('lamon'));//500
+        alert(vegie.size);//5
+
+        //fromentries
+        let obj = Object.fromEntries(vegie.entries());
+        alert(obj.tomato);//200
+
+
+    //date and time
+    
+        let now = new Date();
+        alert( now );//standerd date and time
+        alert(now.getFullYear());
+        alert(now.getMonth());
+        alert(now.getDate());
+        alert(now.getHours());
+        alert(now.getMinutes());
+        alert(now.getSeconds());
+        alert(now.getMilliseconds());
+        alert(now.getDay());
+
+        now.setHours(0);//set hours
+        alert(now);
+
+
+    </script>
+</body>
+</html>

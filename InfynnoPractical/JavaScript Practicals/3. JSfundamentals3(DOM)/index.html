@@ -5,7 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DOM</title>
 </head>
-<body>
+<body class="main class">
+
+    <script>
+        alert(document.body.className); // main page
+
+        document.body.classList.add('article');
+
+        alert(document.body.className);
+    </script>
 
 <!-- document.getElementById -->
     <div id="container">
@@ -48,24 +56,13 @@
     <a href="http://ya.ru">Link 2</a>
 
     <script>
-    // can be any collection instead of document.body.children
-    for (let elem of document.body.children) {
-        if (elem.matches('a[href$="zip"]')) {
-        alert("The archive reference: " + elem.href );
+        for (let elem of document.body.children) {
+            if (elem.matches('a[href$="zip"]')) {
+            alert("The archive reference: " + elem.href );
+            }
         }
-    }
     </script>
 
-
-    <body class="main class">
-        <script>
-        alert(document.body.className); // main page
-
-        document.body.classList.add('article');
-
-        alert(document.body.className);
-        </script>
-        
-    </body>
+   
 </body>
 </html>
