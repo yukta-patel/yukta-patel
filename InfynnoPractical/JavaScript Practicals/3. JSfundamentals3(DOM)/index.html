@@ -7,13 +7,7 @@
 </head>
 <body class="main class">
 
-    <script>
-        alert(document.body.className); // main page
-
-        document.body.classList.add('article');
-
-        alert(document.body.className);
-    </script>
+    
 
 <!-- document.getElementById -->
     <div id="container">
@@ -25,14 +19,7 @@
         </div>
     </div>
 
-    <script>
-        let container = document.getElementById('container');
-        container.style.background ="black";
-        container.style.color="white";
-        container.style.marginTop='100px';
-    </script>
-
-
+   
 <!-- querySelectorAll -->
 
     <ul>
@@ -43,26 +30,41 @@
         <li>HTML</li>
         <li>Bootsrtap</li>
     </ul>
+   
+<!-- matches function -->
+    <a href="http://example.com/file.zip">Link 1</a>
+    <a href="http://ya.ru">Link 2</a>
+
+    
+
+
     <script>
+        alert(document.body.className); // main page
+
+        document.body.classList.add('article');
+
+        alert(document.body.className);
+
+
+        let container = document.getElementById('container');
+        container.style.background ="black";
+        container.style.color="white";
+        container.style.marginTop='100px';
+
+
+
         let elements = document.querySelectorAll('ul > li:first-child');
     
         for (let elem of elements) {
         alert(elem.innerHTML); // "test", "passed"
         }
-    </script>
 
-<!-- matches function -->
-    <a href="http://example.com/file.zip">Link 1</a>
-    <a href="http://ya.ru">Link 2</a>
-
-    <script>
         for (let elem of document.body.children) {
             if (elem.matches('a[href$="zip"]')) {
             alert("The archive reference: " + elem.href );
             }
         }
     </script>
-
    
 </body>
 </html>
