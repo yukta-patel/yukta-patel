@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Functions</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <script>
+        $(function(){ //redy method for document
+          $("button:first").click(function(){ //click method
+            $("p:last").addClass("intro") //addClass function
+            $("p").append(" <b>Appended text</b>.") //append function
+            $("p:first").clone().appendTo("#btn2") //clone function
+          })
+
+          $("#btn2").click(function(){
+            $("p:first").after("After fuction") //after function
+            $("p:first").before("Before Function") //befor function
+            $("img").attr("width","500")  //attr function
+            $("img").attr("height","200") //attr function
+            
+          
+          })
+        })
+</script>
+</head>
+
+<body>
+    
+    <h1>This is a heading</h1>
+
+    <p>This is a paragraph.</p>
+    <p>This is another paragraph.</p>
+
+    <button>First button</button>
+    <button id="btn2">Last button</button>
+
+    <img src="./images/blog2.PNG" width="250" height="100" alt="blog image">
+
+</body>
+</html>
