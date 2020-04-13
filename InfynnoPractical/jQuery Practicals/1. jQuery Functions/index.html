@@ -6,38 +6,105 @@
     <title>jQuery Functions</title>
     <link rel="stylesheet" href="./css/style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-
-    <script>
-        $(function(){ //redy method for document
-          $("button:first").click(function(){ //click method
-            $("p:last").addClass("intro") //addClass function
-            $("p").append(" <b>Appended text</b>.") //append function
-            $("p:first").clone().appendTo("#btn2") //clone function
-          })
-
-          $("#btn2").click(function(){
-            $("p:first").after("After fuction") //after function
-            $("p:first").before("Before Function") //befor function
-            $("img").attr("width","500")  //attr function
-            $("img").attr("height","200") //attr function
-            
-          
-          })
-        })
-</script>
 </head>
 
 <body>
     
-    <h1>This is a heading</h1>
+    <h1 class="header">This is a heading</h1>
+    <h2>Welcome</h2>
+    <h3>click header</h3>
 
     <p>This is a paragraph.</p>
     <p>This is another paragraph.</p>
 
+    <div id="div-empty" class="bg-clr">
+      jQuery Functions
+      <p>jQuery is a lightweight, "write less, do more", JavaScript library. The purpose of jQuery is to make it much easier to use JavaScript on your website. jQuery takes a lot of common tasks that require many lines of JavaScript code to accomplish, and wraps them into methods that you can call with a single line of code.</p>
+    </div>
+
+    <div id="div" class="bg-div">
+      jQuery Functions
+      <p>jQuery is a lightweight, "write less, do more", JavaScript library. The purpose of jQuery is to make it much easier to use JavaScript on your website. jQuery takes a lot of common tasks that require many lines of JavaScript code to accomplish, and wraps them into methods that you can call with a single line of code.</p>
+    </div>
+
+
     <button>First button</button>
     <button id="btn2">Last button</button>
+    <button id="submit">submit</button>
+    <button id="hide">Hide</button>
+    <button id="show">Show</button>
+    <button id="toggle">Toggle</button>
 
     <img src="./images/blog2.PNG" width="250" height="100" alt="blog image">
+
+
+    <script>
+      $(function(){ //redy method for document
+        $("button:first").click(function(){ //click method
+          $("p:last").addClass("intro") //addClass function
+          $("p").append(" <b>Appended text</b>.") //append function
+          $("p:first").clone().appendTo("#btn2") //clone function
+        })
+
+        $("#btn2").click(function(){
+          $("p:first").after("After fuction") //after function
+          $("p:first").before("Before Function") //befor function
+          $("img").attr("width","500")  //attr function
+          $("img").attr("height","200") //attr function
+        })
+
+
+        $("#hide").click(function(){
+          $("h1").hide() //hide function
+        })
+
+        $("#show").click(function(){
+          $("h1").show() //show function
+        })
+
+        $("#toggle").click(function(){
+          $("h1").toggle() //toggle function
+        })
+
+        $("#submit").click(function(){
+          $("h1").css("color","red") //css function
+          
+          // $("p").each(function(){  //each function
+          // alert($(this).text())
+          // })
+
+          // alert($("h1").hasClass("header")) //hasClass function
+          $("h2").html("<b><i>Hello world!</i></b>"); //html function
+
+          $("#div-empty").empty(); //empty function
+
+          $("#div").mouseenter(function(){ //mouseenter function
+            $("#div").css("background-color", "pink");
+          })
+
+          $("#div").mouseleave(function(){ //mouseleave function
+            $("#div").css("background-color", "skyblue");
+          })
+
+          $("h2").mousedown(function(){ //mousedown function
+          alert("mousedown on div")
+          })
+          
+          $("h1").mouseup(function(){ //mouseup function
+          alert("mouseup on div")
+          })
+
+          $("h3").on("click", function(){ //on function
+          alert("click method");
+          });
+
+
+        })
+
+
+        
+      })
+</script>
 
 </body>
 </html>
