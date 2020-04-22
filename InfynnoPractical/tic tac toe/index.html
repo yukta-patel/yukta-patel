@@ -10,29 +10,29 @@
 </head>
 <body>
 
-    <div class="board">
-        <h2>Tic Tac Toe</h2>
-        <h3 id="game-display"></h3>
+    <div id="form_val" class="board">
+        <h1>Tic Tac Toe</h1>
+        <h2 id="game-display"></h2>
 
         <div id="row-1">
-            <div onclick="play(this);">&nbsp;</div>
-            <div onclick="play(this);">&nbsp;</div>
-            <div onclick="play(this);">&nbsp;</div>
+            <div onclick="play(this,1);">&nbsp;</div>
+            <div onclick="play(this,2);">&nbsp;</div>
+            <div onclick="play(this,4);">&nbsp;</div>
         </div>
 
         <div id="row-2">
-            <div onclick="play(this);">&nbsp;</div>
-            <div onclick="play(this);">&nbsp;</div>
-            <div onclick="play(this);">&nbsp;</div>
+            <div onclick="play(this,8);">&nbsp;</div>
+            <div onclick="play(this,16);">&nbsp;</div>
+            <div onclick="play(this,32);">&nbsp;</div>
         </div>
 
         <div id="row-3">
-            <div onclick="play(this);">&nbsp;</div>
-            <div onclick="play(this);">&nbsp;</div>
-            <div onclick="play(this);">&nbsp;</div>
+            <div onclick="play(this,64);">&nbsp;</div>
+            <div onclick="play(this,128);">&nbsp;</div>
+            <div onclick="play(this,256);">&nbsp;</div>
         </div>
         
     </div>
-    
+
 </body>
 </html>
