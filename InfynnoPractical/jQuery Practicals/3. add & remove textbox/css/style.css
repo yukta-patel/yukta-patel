@@ -1,0 +1,23 @@
+div[id="container"]
+{
+    background-color: cornsilk;
+    text-align: center;
+}
+
+form[id="tittle"]
+{
+    margin-left: 25px;
+}
+
+form[id="form"]
+{
+    margin-left: 130px;
+}
+
+div[id="submit-btn"]
+{
+    margin-top: 10px;
+    margin-left: 130px;
+    float: left;
+}
+

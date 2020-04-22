@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>jQuery Practical</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="./js/script.js"></script>
+  </head>
+  <body>
+      
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+
+    <div class="container py-5" id="container">
+        <form id="tittle">
+
+            <div class="form-row">
+                <div class="col-sm-4">
+                    <p>Assign Assets Name</p>
+                </div>
+                <div class="col-sm-4">
+                    <p>Quantity</p>
+                </div>
+            </div>
+        </form>
+        
+        <form id="form">
+            <div class="form-row" id="input_field">
+               <div class="col-sm-5">
+                  <input type="text" class="form-control" placeholder="Assets Name">
+                </div>
+               <div class="col-sm-5">
+                 <input type="text" class="form-control" placeholder="Quantity" style="background-color: rgb(242, 243, 247);">
+               </div>
+               <div class="col-sm-1">
+                 <button id="add_button"  type="submit" class="btn btn-primary form-button" >+</button>
+               </div>
+            </div>
+        </form>
+    <div id="submit-btn">
+
+        <button id="submit_form" type="submit" class="btn btn-primary form-submit">Submit</button>
+        <button id="cancel" type="submit" class="btn btn-secondary form-submit">Cancel</button>
+    </div>
+    </div>
+
+
+
+    <script>
+
+        $(document).ready(function(){
+            var max_fields = 10;
+            var x = 0;
+            var remove = $("#input_field");
+            var children = document.getElementById( "input_field" ).childNodes;
+
+            $('#add_button').click(function(e){
+                e.preventDefault()
+                if(x<max_fields)
+                {
+                    // $("#input_field").append('<div class="col-sm-5 mt-3"><input type="text" class="form-control" placeholder="Assets Name"></div><div class="col-sm-5 mt-3"><input type="text" class="form-control" placeholder="Quantity" style="background-color: rgb(242, 243, 247);"></div><div class="col-sm-1 mt-3"><button id="remove_button"  type="submit" class="btn btn-primary form-button" >-</button></div>')
+                    $("#input_field").append('<div id="row_1" class="col-sm-5 mt-3"><input type="text" class="form-control" placeholder="Assets Name"></div><div id="row_2" class="col-sm-5 mt-3"><input type="text" class="form-control" placeholder="Quantity" style="background-color: rgb(242, 243, 247);"></div><div id="row_3" class="col-sm-1 mt-3"><button id="remove_button"  type="submit" class="btn btn-primary form-button" >-</button></div>')
+                    x++
+                }
+            })
+
+            $('#input_field').on("click","#remove_button",function(e){
+                e.preventDefault()
+                var button_id = $(this).attr("id");
+                $("#row_1").remove();
+                $("#row_2").remove();
+                $("#row_3").remove();
+                x--
+            })
+        })
+
+    </script>
+  </body>
+</html>
