@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>jQuery Practical</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="./js/script.js"></script>
+  </head>
+  <body>
+      
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+
+    <div class="container py-5" id="container">
+        <form id="tittle">
+
+            <div class="form-row">
+                
+                <div class="col-sm-1">
+                    Select all<br><input type="checkbox" class="select_all" id="selectAll" > 
+                </div>
+               <div class="col-sm-2">
+                  <p>Group Name</p>
+                </div>
+                <div class="col-sm-2">
+                    <p>Goal Metric</p>
+                </div>
+                <div class="col-sm-2">
+                    <p>Goal Value</p>
+                </div>
+                <div class="col-sm-2">
+                    <p>Goal Frequency</p>
+                </div>
+                <div class="col-sm-2">
+                    <p>Date</p>
+                </div>
+                
+            </div>
+
+        </form>
+        
+        <form id="form">
+            <div class="form-row" id="input_field">
+                
+                <div class="col-sm-1">
+                    <input class="ml-1 check" type="checkbox">
+                </div>
+                <div class="col-sm-2">
+                  <input type="text" class="form-control" placeholder="Group Name">
+                </div>
+                <div class="col-sm-2">
+                    <input type="text" class="form-control" placeholder="Metric">
+                </div>
+                <div class="col-sm-2">
+                    <input type="text" class="form-control" placeholder="Value">
+                </div>
+                <div class="col-sm-2">
+                    <input type="text" class="form-control" placeholder="Frequency">
+                </div>
+                <div class="col-sm-2">
+                    <input type="text" class="form-control" placeholder="Date">
+                </div>
+                <div class="col-sm-1">
+                    <button id="add_button" type="submit" class="btn btn-primary" style="width: 82px;">Add</button>
+                </div>
+            </div>
+        </form>
+
+        <div>
+            <p id="total_grp" style="text-align: center;" class="mt-5">Total Groups: </p>
+        </div>
+
+        <!-- <div id="submit-btn">
+            <button id="submit_form" type="submit" class="btn btn-primary form-submit">Submit</button>
+            <button id="cancel" type="submit" class="btn btn-secondary form-submit">Cancel</button>
+        </div> -->
+    </div>
+
+
+
+    <script>
+
+        $(document).ready(function(){
+            var max_fields = 10;
+            var remove = $("#input_field");
+            var i=0;
+            document.getElementById("selectAll").setAttribute("unchecked","true");
+            var a = document.getElementById("selectAll").getAttribute("unchecked");
+            console.log(a);
+            var x;
+            var y;
+            var count;
+             
+                
+
+                
+                   // $('.select_all').on("click",function(){
+
+                        // if(a=="true")
+                        // {
+                        //     $('.check').attr("checked","true");
+                        //     document.getElementById("selectAll").setAttribute("checked","false");
+                        //     var b=document.getElementById("selectAll").getAttribute("checked")
+                        //     console.log(b);
+                        // }
+
+                        // if(b=="false")
+                        // {
+                        //     $('.check').attr("unchecked","true");
+                        // }
+
+
+
+                        // $('.check').each(function() {
+                        //     if(a=="true")
+                        //     {
+                        //         $('.check').attr("checked","true");
+                        //     } 
+                        //     else 
+                        //     {
+                        //         $('.check').attr("checked","false");
+                                
+                        //     }
+                        // })
+
+
+                        
+                        
+                   // })
+
+                    $('.select_all').click(function() {
+    
+                        if(a=="true")
+                        {
+                            $('.check').prop('checked', true);
+                            document.getElementById("selectAll").setAttribute("checked","false");
+                            a=document.getElementById("selectAll").getAttribute("checked")
+                            
+                            x=i+1;
+                            console.log(x);
+                        }
+
+                        else
+                        {
+                            $('.check').prop('checked', false);
+                            document.getElementById("selectAll").setAttribute("checked","true");
+                            a=document.getElementById("selectAll").getAttribute("checked")
+                            x=0;
+                            console.log(x);
+                            
+                        }
+
+                        count();
+                        
+                    });
+
+                    function count()
+                    {
+                       
+                       $("#total_grp").text(x);
+                       
+                    }
+                    
+                
+              
+           
+
+            $('#add_button').click(function(e){
+                e.preventDefault()
+                if(i<max_fields)
+                {
+                    i++;
+                    $("#input_field").append('<form id="row'+i+'"><div class="form-row" id="input_field"><div class="col-sm-1 mt-3"><input class="ml-1 check" type="checkbox"></div><div class="col-sm-2 mt-3"><input type="text" class="form-control" placeholder="Group Name"></div><div class="col-sm-2 mt-3"><input type="text" class="form-control" placeholder="Metric"></div><div class="col-sm-2 mt-3"><input type="text" class="form-control" placeholder="Value"></div><div class="col-sm-2 mt-3"><input type="text" class="form-control" placeholder="Frequency"></div><div class="col-sm-2 mt-3"><input type="text" class="form-control" placeholder="Date"></div><div class="col-sm-1 mt-3"><button  type="submit" id="'+i+'" class="btn btn-primary remove">Remove</button></div></div></form>')
+                    console.log(i);
+                }
+                else
+                {
+                    alert("you can add maximum 10 inputs")
+                }
+                
+            })
+
+            $('#input_field').on("click",".remove",function(e){
+                e.preventDefault()
+                var button_id = $(this).attr("id");
+                console.log(button_id);
+                $('#row'+button_id).remove();
+                i--;
+                console.log(i);
+            })
+        })
+
+    </script>
+  </body>
+</html>
