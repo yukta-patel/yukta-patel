@@ -31,6 +31,7 @@
                     <p>Quantity</p>
                 </div>
             </div>
+
         </form>
         
         <form id="form">
@@ -46,11 +47,11 @@
                </div>
             </div>
         </form>
-    <div id="submit-btn">
 
-        <button id="submit_form" type="submit" class="btn btn-primary form-submit">Submit</button>
-        <button id="cancel" type="submit" class="btn btn-secondary form-submit">Cancel</button>
-    </div>
+        <div id="submit-btn">
+            <button id="submit_form" type="submit" class="btn btn-primary form-submit">Submit</button>
+            <button id="cancel" type="submit" class="btn btn-secondary form-submit">Cancel</button>
+        </div>
     </div>
 
 
@@ -59,18 +60,19 @@
 
         $(document).ready(function(){
             var max_fields = 10;
-            var x = 0;
             var remove = $("#input_field");
-            var children = document.getElementById( "input_field" ).childNodes;
             var i=0;
 
             $('#add_button').click(function(e){
                 e.preventDefault()
-                if(x<max_fields)
+                if(i<max_fields)
                 {
                     i++;
                     $("#input_field").append('<div class="row" id="row'+i+'"><div class="form-row" id="input_field"><div id="first_row'+i+'" class="col-sm-5 mt-3 left-m length"><input type="text" class="form-control" placeholder="Assets Name"></div><div id="second_row'+i+'" class="col-sm-5 mt-3 length"><input type="text" class="form-control" placeholder="Quantity" style="background-color: rgb(242, 243, 247);"></div><div id="row_3" class="col-sm-1 mt-3"><button id="'+i+'"  type="submit" class="btn btn-primary form-button remove" >-</button></div></div></div>')
-                    x++
+                }
+                else
+                {
+                    alert("you can add maximum 10 inputs")
                 }
             })
 
@@ -78,7 +80,7 @@
                 e.preventDefault()
                 var button_id = $(this).attr("id");
                 $('#row'+button_id).remove();
-                x--
+                i=0;
             })
         })
 
