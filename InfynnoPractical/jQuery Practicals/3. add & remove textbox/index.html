@@ -69,28 +69,15 @@
                 if(x<max_fields)
                 {
                     i++;
-                    // $("#input_field").append('<div class="col-sm-5 mt-3"><input type="text" class="form-control" placeholder="Assets Name"></div><div class="col-sm-5 mt-3"><input type="text" class="form-control" placeholder="Quantity" style="background-color: rgb(242, 243, 247);"></div><div class="col-sm-1 mt-3"><button id="remove_button"  type="submit" class="btn btn-primary form-button" >-</button></div>')
-                    // $("#input_field").append('<div id="row_1" class="col-sm-5 mt-3"><input type="text" class="form-control" placeholder="Assets Name"></div><div id="row_2" class="col-sm-5 mt-3"><input type="text" class="form-control" placeholder="Quantity" style="background-color: rgb(242, 243, 247);"></div><div id="row_3" class="col-sm-1 mt-3"><button id="remove_button"  type="submit" class="btn btn-primary form-button" >-</button></div>')
-                    // $("#input_field").append('<div id="first_row'+i+'" class="col-sm-5 mt-3"><input type="text" class="form-control" placeholder="Assets Name"></div><div id="second_row'+i+'" class="col-sm-5 mt-3"><input type="text" class="form-control" placeholder="Quantity" style="background-color: rgb(242, 243, 247);"></div><div id="row_3" class="col-sm-1 mt-3"><button id="'+i+'"  type="submit" class="btn btn-primary form-button remove" >-</button></div>')
-                    $("#input_field").append('<div class="row" id="row'+i+'"><div class="form-row" id="input_field"><div id="first_row'+i+'" class="col-sm-5 mt-3"><input type="text" class="form-control" placeholder="Assets Name"></div><div id="second_row'+i+'" class="col-sm-5 mt-3"><input type="text" class="form-control" placeholder="Quantity" style="background-color: rgb(242, 243, 247);"></div><div id="row_3" class="col-sm-1 mt-3"><button id="'+i+'"  type="submit" class="btn btn-primary form-button remove" >-</button></div></div></div>')
-                    
-
+                    $("#input_field").append('<div class="row" id="row'+i+'"><div class="form-row" id="input_field"><div id="first_row'+i+'" class="col-sm-5 mt-3 left-m length"><input type="text" class="form-control" placeholder="Assets Name"></div><div id="second_row'+i+'" class="col-sm-5 mt-3 length"><input type="text" class="form-control" placeholder="Quantity" style="background-color: rgb(242, 243, 247);"></div><div id="row_3" class="col-sm-1 mt-3"><button id="'+i+'"  type="submit" class="btn btn-primary form-button remove" >-</button></div></div></div>')
                     x++
                 }
             })
 
             $('#input_field').on("click",".remove",function(e){
                 e.preventDefault()
-
-                // $("#row_1").remove();
-                // $("#row_2").remove();
-                // $("#row_3").remove(); 
-                
                 var button_id = $(this).attr("id");
                 $('#row'+button_id).remove();
-                // $('#first_row'+button_id).remove();
-                // $('#second_row'+button_id).remove();
-                // $("#"+button_id).remove();
                 x--
             })
         })
