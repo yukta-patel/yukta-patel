@@ -96,13 +96,13 @@
 	                });
             
                     $(document).on('click', '.check', function() {
-                        var count_checkbox = $('input[name="checked"]:checked').length
-                        $('span').text(count_checkbox)
+                        var count= $('input[name="checked"]:checked').length
+                        $('span').text(count)
                     });
 
                     $(document).on('click', '.select_all', function() {
-                        var count_checkbox = $('input[name="checked"]:checked').length
-                            $('span').text(count_checkbox)
+                        var count= $('input[name="checked"]:checked').length
+                            $('span').text(count)
             })
              
             $('#add_button').click(function(e){
