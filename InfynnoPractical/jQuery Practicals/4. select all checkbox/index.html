@@ -55,19 +55,19 @@
                     <input type="checkbox" class="ml-1 check" name="checked">
                 </div>
                 <div class="col-sm-2">
-                  <input type="text" class="form-control" id="text_box" value="dc" placeholder="Group Name">
+                  <input type="text" class="form-control Group_Name" name="GroupName" id="text_box" placeholder="Group Name">
                 </div>
                 <div class="col-sm-2">
-                    <input type="text" class="form-control" placeholder="Metric">
+                    <input type="text" class="form-control text_Metric" name="Metric" placeholder="Metric">
                 </div>
                 <div class="col-sm-2">
-                    <input type="text" class="form-control" placeholder="Value">
+                    <input type="text" class="form-control text_Value" name="Value" placeholder="Value">
                 </div>
                 <div class="col-sm-2">
-                    <input type="text" class="form-control" placeholder="Frequency">
+                    <input type="text" class="form-control text_Fre" name="Fre" placeholder="Frequency">
                 </div>
                 <div class="col-sm-2">
-                    <input type="text" class="form-control" placeholder="Date">
+                    <input type="text" class="form-control text_Date" name="Date" placeholder="Date">
                 </div>
                 <div class="col-sm-1">
                     <button id="add_button" type="submit" class="btn btn-primary" style="width: 82px;">Add</button>
@@ -91,38 +91,69 @@
             var remove = $("#input_field");
             var i=0;
 
-            var text= document.getElementById('text_box').value;
+            // var text= document.getElementById('text_box').value;
+            // console.log(text);
+            // $("document").on("click",".text_box",function(){
+            //     alert('hello');
+            // })
+            
+            $(document).on('keyup', '.Group_Name', function() {
+                var txt=$('input:text[name=GroupName]').val();
+                console.log(txt);
+                $('input:text[name=GroupName]').val(txt);
+            })
 
-            console.log(text);
+            $(document).on('keyup', '.text_Metric', function() {
+                var txt=$('input:text[name=Metric]').val();
+                console.log(txt);
+                $('input:text[name=Metric]').val(txt);
+            })
 
+            $(document).on('keyup', '.text_Value', function() {
+                var txt=$('input:text[name=Value]').val();
+                console.log(txt);
+                $('input:text[name=Value]').val(txt);
+            })
+
+            $(document).on('keyup', '.text_Fre', function() {
+                var txt=$('input:text[name=Fre]').val();
+                console.log(txt);
+                $('input:text[name=Fre]').val(txt);
+            })
+
+            $(document).on('keyup', '.text_Date', function() {
+                var txt=$('input:text[name=Date]').val();
+                console.log(txt);
+                $('input:text[name=Date]').val(txt);
+            })           
 
            
             $(".select_all").click(function () {
-		                $('.check').prop('checked', this.checked)
-	                });
+		        $('.check').prop('checked', this.checked)
+	        });
             
-                    $(document).on('click', '.check', function() {
-                        var count= $('input[name="checked"]:checked').length
-                        $('span').text(count)
-                    });
+            $(document).on('click', '.check', function() {
+                var count= $('input[name="checked"]:checked').length
+                $('span').text(count)
+            });
 
-                    $(document).on('click', '.select_all', function() {
-                        var count= $('input[name="checked"]:checked').length
-                            $('span').text(count)
+            $(document).on('click', '.select_all', function() {
+                var count= $('input[name="checked"]:checked').length
+                $('span').text(count)
             })
              
             $('#add_button').click(function(e){
-                    e.preventDefault()
-                    if(i<max_fields)
-                    {
-                        i++;
-                        $("#input_field").append('<form id="row'+i+'"><div class="form-row" id="input_field"><div class="col-sm-1 mt-3"><input type="checkbox" class="ml-1 check" name="checked" id="check_box" ></div><div class="col-sm-2 mt-3"><input type="text" class="form-control" placeholder="Group Name"></div><div class="col-sm-2 mt-3"><input type="text" class="form-control" placeholder="Metric"></div><div class="col-sm-2 mt-3"><input type="text" class="form-control" placeholder="Value"></div><div class="col-sm-2 mt-3"><input type="text" class="form-control" placeholder="Frequency"></div><div class="col-sm-2 mt-3"><input type="text" class="form-control" placeholder="Date"></div><div class="col-sm-1 mt-3"><button  type="submit" id="'+i+'" class="btn btn-primary remove">Remove</button></div></div></form>')
-                        console.log(i);
-                    }
-                    else
-                    {
-                        alert("you can add maximum 10 inputs")
-                    }
+                e.preventDefault()
+                if(i<max_fields)
+                {
+                    i++;
+                    $("#input_field").append('<form id="row'+i+'"><div class="form-row" id="input_field"><div class="col-sm-1 mt-3"><input type="checkbox" class="ml-1 check" name="checked" id="check_box" ></div><div class="col-sm-2 mt-3"><input type="text" class="form-control Group_Name" id="text_box" name="GroupName" placeholder="Group Name"></div><div class="col-sm-2 mt-3"><input type="text" class="form-control text_Metric" name="Metric" placeholder="Metric"></div><div class="col-sm-2 mt-3"><input type="text" class="form-control text_Value" name="Value" placeholder="Value"></div><div class="col-sm-2 mt-3"><input type="text" class="form-control text_Fre" name="Fre" placeholder="Frequency"></div><div class="col-sm-2 mt-3"><input type="text" class="form-control text_Date" name="Date" placeholder="Date"></div><div class="col-sm-1 mt-3"><button  type="submit" id="'+i+'" class="btn btn-primary remove">Remove</button></div></div></form>')
+                    console.log(i);
+                }
+                else
+                {
+                    alert("you can add maximum 10 inputs")
+                }
                 
             })
 
