@@ -52,7 +52,7 @@
             <div class="form-row" id="input_field">
                 
                 <div class="col-sm-1">
-                    <input class="ml-1 check" type="checkbox">
+                    <input type="checkbox" class="ml-1 check" name="checked">
                 </div>
                 <div class="col-sm-2">
                   <input type="text" class="form-control" placeholder="Group Name">
@@ -76,13 +76,10 @@
         </form>
 
         <div>
-            <p id="total_grp" style="text-align: center;" class="mt-5">Total Groups: </p>
+            <p id="total_grp" style="text-align: center;" class="mt-5">Total Groups: <span></span> </p>
         </div>
 
-        <!-- <div id="submit-btn">
-            <button id="submit_form" type="submit" class="btn btn-primary form-submit">Submit</button>
-            <button id="cancel" type="submit" class="btn btn-secondary form-submit">Cancel</button>
-        </div> -->
+   
     </div>
 
 
@@ -93,109 +90,42 @@
             var max_fields = 10;
             var remove = $("#input_field");
             var i=0;
-            document.getElementById("selectAll").setAttribute("unchecked","true");
-            var a = document.getElementById("selectAll").getAttribute("unchecked");
-            console.log(a);
-            var x;
-            var y;
-            var count;
-             
-                
-
-                
-                   // $('.select_all').on("click",function(){
-
-                        // if(a=="true")
-                        // {
-                        //     $('.check').attr("checked","true");
-                        //     document.getElementById("selectAll").setAttribute("checked","false");
-                        //     var b=document.getElementById("selectAll").getAttribute("checked")
-                        //     console.log(b);
-                        // }
-
-                        // if(b=="false")
-                        // {
-                        //     $('.check').attr("unchecked","true");
-                        // }
-
-
-
-                        // $('.check').each(function() {
-                        //     if(a=="true")
-                        //     {
-                        //         $('.check').attr("checked","true");
-                        //     } 
-                        //     else 
-                        //     {
-                        //         $('.check').attr("checked","false");
-                                
-                        //     }
-                        // })
-
-
-                        
-                        
-                   // })
-
-                    $('.select_all').click(function() {
-    
-                        if(a=="true")
-                        {
-                            $('.check').prop('checked', true);
-                            document.getElementById("selectAll").setAttribute("checked","false");
-                            a=document.getElementById("selectAll").getAttribute("checked")
-                            
-                            x=i+1;
-                            console.log(x);
-                        }
-
-                        else
-                        {
-                            $('.check').prop('checked', false);
-                            document.getElementById("selectAll").setAttribute("checked","true");
-                            a=document.getElementById("selectAll").getAttribute("checked")
-                            x=0;
-                            console.log(x);
-                            
-                        }
-
-                        count();
-                        
+           
+            $(".select_all").click(function () {
+		                $('.check').prop('checked', this.checked)
+	                });
+            
+                    $(document).on('click', '.check', function() {
+                        var count_checkbox = $('input[name="checked"]:checked').length
+                        $('span').text(count_checkbox)
                     });
 
-                    function count()
-                    {
-                       
-                       $("#total_grp").text(x);
-                       
-                    }
-                    
-                
-              
-           
-
+                    $(document).on('click', '.select_all', function() {
+                        var count_checkbox = $('input[name="checked"]:checked').length
+                            $('span').text(count_checkbox)
+            })
+             
             $('#add_button').click(function(e){
-                e.preventDefault()
-                if(i<max_fields)
-                {
-                    i++;
-                    $("#input_field").append('<form id="row'+i+'"><div class="form-row" id="input_field"><div class="col-sm-1 mt-3"><input class="ml-1 check" type="checkbox"></div><div class="col-sm-2 mt-3"><input type="text" class="form-control" placeholder="Group Name"></div><div class="col-sm-2 mt-3"><input type="text" class="form-control" placeholder="Metric"></div><div class="col-sm-2 mt-3"><input type="text" class="form-control" placeholder="Value"></div><div class="col-sm-2 mt-3"><input type="text" class="form-control" placeholder="Frequency"></div><div class="col-sm-2 mt-3"><input type="text" class="form-control" placeholder="Date"></div><div class="col-sm-1 mt-3"><button  type="submit" id="'+i+'" class="btn btn-primary remove">Remove</button></div></div></form>')
-                    console.log(i);
-                }
-                else
-                {
-                    alert("you can add maximum 10 inputs")
-                }
+                    e.preventDefault()
+                    if(i<max_fields)
+                    {
+                        i++;
+                        $("#input_field").append('<form id="row'+i+'"><div class="form-row" id="input_field"><div class="col-sm-1 mt-3"><input type="checkbox" class="ml-1 check" name="checked" id="check_box" ></div><div class="col-sm-2 mt-3"><input type="text" class="form-control" placeholder="Group Name"></div><div class="col-sm-2 mt-3"><input type="text" class="form-control" placeholder="Metric"></div><div class="col-sm-2 mt-3"><input type="text" class="form-control" placeholder="Value"></div><div class="col-sm-2 mt-3"><input type="text" class="form-control" placeholder="Frequency"></div><div class="col-sm-2 mt-3"><input type="text" class="form-control" placeholder="Date"></div><div class="col-sm-1 mt-3"><button  type="submit" id="'+i+'" class="btn btn-primary remove">Remove</button></div></div></form>')
+                        console.log(i);
+                    }
+                    else
+                    {
+                        alert("you can add maximum 10 inputs")
+                    }
                 
             })
 
             $('#input_field').on("click",".remove",function(e){
-                e.preventDefault()
-                var button_id = $(this).attr("id");
-                console.log(button_id);
-                $('#row'+button_id).remove();
-                i--;
-                console.log(i);
+                    e.preventDefault()
+                    var button_id = $(this).attr("id");
+                    $('#row'+button_id).remove();
+                    i--;
+                
             })
         })
 
