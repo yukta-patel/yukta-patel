@@ -100,7 +100,32 @@
             $(document).on('keyup', '.Group_Name', function() {
                 var txt=$('input:text[name=GroupName]').val();
                 console.log(txt);
-                $('input:text[name=GroupName]').val(txt);
+                // $('input[name="checked"]:checked').prop("name","b1")
+                // $('input[name="checked"]').change(function(){
+                //     $('input:text[name=GroupName]').val(txt);
+                // })
+
+                // if ($("input[name=checked]").is( ":checked")) { 
+                //     $('input:text[name=GroupName]').val(txt);
+                // } 
+
+
+                // if($("input[name=checked]").prop('checked') == true){
+                //     //do something
+                //     $('input:text[name=GroupName]').val(txt);
+                // }
+                    
+                // $("input[name=checked]").each(function(){
+                //     if($("input[name=checked]").is( ":checked")){
+                //         $('input:text[name=GroupName]').val(txt);
+                //     }
+                // })
+
+                $("input[name=checked]").change(function(){
+                    $("input:text[name=GroupName]").prop("disabled", !$(this).is(':checked'));
+                    $('input:text[name=GroupName]').val(txt);
+                    
+                });
             })
 
             $(document).on('keyup', '.text_Metric', function() {
