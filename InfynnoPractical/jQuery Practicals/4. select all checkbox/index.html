@@ -55,7 +55,7 @@
                     <input type="checkbox" class="ml-1 check" name="checked">
                 </div>
                 <div class="col-sm-2">
-                  <input type="text" class="form-control" placeholder="Group Name">
+                  <input type="text" class="form-control" id="text_box" value="dc" placeholder="Group Name">
                 </div>
                 <div class="col-sm-2">
                     <input type="text" class="form-control" placeholder="Metric">
@@ -90,6 +90,12 @@
             var max_fields = 10;
             var remove = $("#input_field");
             var i=0;
+
+            var text= document.getElementById('text_box').value;
+
+            console.log(text);
+
+
            
             $(".select_all").click(function () {
 		                $('.check').prop('checked', this.checked)
@@ -125,6 +131,9 @@
                     var button_id = $(this).attr("id");
                     $('#row'+button_id).remove();
                     i--;
+
+                    var count= $('input[name="checked"]:checked').length
+                    $('span').text(count)
                 
             })
         })
