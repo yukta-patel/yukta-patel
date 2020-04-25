@@ -49,25 +49,25 @@
         </form>
         
         <form id="form">
-            <div class="form-row" id="input_field">
+            <div class="form-row activ1" id="input_field">
                 
                 <div class="col-sm-1">
                     <input type="checkbox" class="ml-1 check" name="checked">
                 </div>
                 <div class="col-sm-2">
-                  <input type="text" class="form-control Group_Name" name="GroupName" id="text_box" placeholder="Group Name">
+                  <input type="text" class="form-control Group_N" name="GroupName" id="text_box" placeholder="Group Name">
                 </div>
                 <div class="col-sm-2">
-                    <input type="text" class="form-control text_Metric" name="Metric" placeholder="Metric">
+                    <input type="text" class="form-control text_M" name="Metric" placeholder="Metric">
                 </div>
                 <div class="col-sm-2">
-                    <input type="text" class="form-control text_Value" name="Value" placeholder="Value">
+                    <input type="text" class="form-control  text_V" name="Value" placeholder="Value">
                 </div>
                 <div class="col-sm-2">
-                    <input type="text" class="form-control text_Fre" name="Fre" placeholder="Frequency">
+                    <input type="text" class="form-control text_F" name="Fre" placeholder="Frequency">
                 </div>
                 <div class="col-sm-2">
-                    <input type="text" class="form-control text_Date" name="Date" placeholder="Date">
+                    <input type="text" class="form-control text_D" name="Date" placeholder="Date">
                 </div>
                 <div class="col-sm-1">
                     <button id="add_button" type="submit" class="btn btn-primary" style="width: 82px;">Add</button>
@@ -90,81 +90,177 @@
             var max_fields = 10;
             var remove = $("#input_field");
             var i=0;
-
-            // var text= document.getElementById('text_box').value;
-            // console.log(text);
-            // $("document").on("click",".text_box",function(){
-            //     alert('hello');
-            // })
             
-            $(document).on('keyup', '.Group_Name', function() {
+            $(document).on('keyup', '.Group_N', function() {
                 var txt=$('input:text[name=GroupName]').val();
-                console.log(txt);
-                // $('input[name="checked"]:checked').prop("name","b1")
-                // $('input[name="checked"]').change(function(){
-                //     $('input:text[name=GroupName]').val(txt);
-                // })
-
-                // if ($("input[name=checked]").is( ":checked")) { 
-                //     $('input:text[name=GroupName]').val(txt);
-                // } 
-
-
-                // if($("input[name=checked]").prop('checked') == true){
-                //     //do something
-                //     $('input:text[name=GroupName]').val(txt);
-                // }
+                
+                // $('input:text[name=GroupName]').val(txt);
+                    $('input:text[name=GroupName]').each(function(){
+                        var main = $(this).parent().parent();
+                        
+                        if($(main).hasClass("active"))
+                        {
                     
-                // $("input[name=checked]").each(function(){
-                //     if($("input[name=checked]").is( ":checked")){
-                //         $('input:text[name=GroupName]').val(txt);
-                //     }
-                // })
+                            $(this).val(txt);
+                            
+                        }
+                    });
+            })
 
-                $("input[name=checked]").change(function(){
-                    $("input:text[name=GroupName]").prop("disabled", !$(this).is(':checked'));
-                    $('input:text[name=GroupName]').val(txt);
-                    
+            $(document).on('keyup', '.text_M', function() {
+                var txt=$('input:text[name=Metric]').val();
+                
+                    $('input:text[name=Metric]').each(function(){
+                            var main = $(this).parent().parent();
+                            
+                            if($(main).hasClass("active"))
+                            {
+                        
+                                $(this).val(txt);
+                                
+                            }
+                    });
+            })
+
+            $(document).on('keyup', '.text_V', function() {
+                var txt=$('input:text[name=Value]').val();
+                
+                $('input:text[name=Value]').each(function(){
+                            var main = $(this).parent().parent();
+                            
+                            if($(main).hasClass("active"))
+                            {
+                        
+                                $(this).val(txt);
+                                
+                            }
                 });
             })
 
-            $(document).on('keyup', '.text_Metric', function() {
-                var txt=$('input:text[name=Metric]').val();
-                console.log(txt);
-                $('input:text[name=Metric]').val(txt);
-            })
-
-            $(document).on('keyup', '.text_Value', function() {
-                var txt=$('input:text[name=Value]').val();
-                console.log(txt);
-                $('input:text[name=Value]').val(txt);
-            })
-
-            $(document).on('keyup', '.text_Fre', function() {
+            $(document).on('keyup', '.text_F', function() {
                 var txt=$('input:text[name=Fre]').val();
-                console.log(txt);
-                $('input:text[name=Fre]').val(txt);
+                
+                $('input:text[name=Fre]').each(function(){
+                            var main = $(this).parent().parent();
+                            
+                            if($(main).hasClass("active"))
+                            {
+                        
+                                $(this).val(txt);
+                                
+                            }
+                });
             })
 
-            $(document).on('keyup', '.text_Date', function() {
+            $(document).on('keyup', '.text_D', function() {
                 var txt=$('input:text[name=Date]').val();
-                console.log(txt);
-                $('input:text[name=Date]').val(txt);
+                
+                $('input:text[name=Date]').each(function(){
+                            var main = $(this).parent().parent();
+                            
+                            if($(main).hasClass("active"))
+                            {
+                        
+                                $(this).val(txt);
+                                
+                            }
+                });
             })           
 
            
             $(".select_all").click(function () {
 		        $('.check').prop('checked', this.checked)
-	        });
+            });
+
+            
             
             $(document).on('click', '.check', function() {
                 var count= $('input[name="checked"]:checked').length
                 $('span').text(count)
+
+                
+                    if($(this).is(":checked"))
+                    {
+                        $(this).parent().parent().addClass('active');
+                    }
+                    else{
+                        $(this).parent().parent().removeClass('active');
+                    }
+                
+
+                    var txt=$('.Group_N').val();
+                        $('.Group_Name').each(function(){
+                            var main = $(this).parent().parent();
+                                if($(main).hasClass("active"))
+                                {
+                                    $(this).val(txt);
+                                }
+                                else
+                                {
+                                    $(this).val("");
+                                }
+                        });
+
+                    var txt=$('.text_M').val();
+                    $('.text_Metric').each(function(){
+					    var main = $(this).parent().parent();
+					        if($(main).hasClass("active"))
+					        {
+						        $(this).val(txt);
+					        }
+                            else
+                            {
+                                $(this).val("");
+                            }
+				    });
+
+                    var txt=$('.text_V').val();
+                    $('.text_Value').each(function(){
+					    var main = $(this).parent().parent();
+					        if($(main).hasClass("active"))
+					        {
+						        $(this).val(txt);
+					        }
+                            else
+                            {
+                                $(this).val("");
+                            }
+				    });
+
+                    var txt=$('.text_F').val();
+                    $('.text_Fre').each(function(){
+					    var main = $(this).parent().parent();
+					        if($(main).hasClass("active"))
+					        {
+						        $(this).val(txt);
+					        }
+                            else
+                            {
+                                $(this).val("");
+                            }
+				    });
+
+                    var txt=$('.text_D').val();
+                    $('.text_Date').each(function(){
+					    var main = $(this).parent().parent();
+					        if($(main).hasClass("active"))
+					        {
+						        $(this).val(txt);
+					        }
+                            else
+                            {
+                                $(this).val("");
+                            }
+				    });
+                
             });
 
             $(document).on('click', '.select_all', function() {
                 var count= $('input[name="checked"]:checked').length
                 $('span').text(count)
+                // $('input[name="checked"]:checked').parent().parent().addClass('active');
+                
+                
             })
              
             $('#add_button').click(function(e){
@@ -173,7 +269,6 @@
                 {
                     i++;
                     $("#input_field").append('<form id="row'+i+'"><div class="form-row" id="input_field"><div class="col-sm-1 mt-3"><input type="checkbox" class="ml-1 check" name="checked" id="check_box" ></div><div class="col-sm-2 mt-3"><input type="text" class="form-control Group_Name" id="text_box" name="GroupName" placeholder="Group Name"></div><div class="col-sm-2 mt-3"><input type="text" class="form-control text_Metric" name="Metric" placeholder="Metric"></div><div class="col-sm-2 mt-3"><input type="text" class="form-control text_Value" name="Value" placeholder="Value"></div><div class="col-sm-2 mt-3"><input type="text" class="form-control text_Fre" name="Fre" placeholder="Frequency"></div><div class="col-sm-2 mt-3"><input type="text" class="form-control text_Date" name="Date" placeholder="Date"></div><div class="col-sm-1 mt-3"><button  type="submit" id="'+i+'" class="btn btn-primary remove">Remove</button></div></div></form>')
-                    console.log(i);
                 }
                 else
                 {
