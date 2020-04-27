@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<body>
+
+    <div id="div1"><h2>Division 1</h2></div>
+    <div id="div2"><h2>Division 2</h2></div>
+    <p id="test"></p>
+    <button>Get External Content</button>
+
+    <script>
+        $(document).ready(function(){
+          $("button").click(function(){
+            
+            $("#div1").load("document.txt #p1");
+
+            $("#div1").load("document.txt", function(responseTxt, statusTxt, xhr){
+                if(statusTxt == "success")
+                    alert("External content loaded successfully!");
+                if(statusTxt == "error")
+                    alert("Error: " + xhr.status + ":" + xhr.statusText);
+            });
+
+            
+            $("#div2").load("document.txt");
+
+
+            $.get("document.txt", function(data, status){
+                $("#test").html(data);
+                alert(status)
+            });
+
+            $.get("http://jsonplaceholder.typicode.com/posts/1", function(data, status){
+                console.log(data);
+                alert("Data: " + data + "\nStatus: " + status);
+                
+            });
+            
+
+            $.post("http://jsonplaceholder.typicode.com/posts",{ 
+                    id: "1", 
+                }, 
+                function(data,status){
+                alert("Data: " + data + "\nStatus: " + status);
+                console.log(data);
+            });
+
+         }); 
+        });
+    </script>
+</body>
+</html>
