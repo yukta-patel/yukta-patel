@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  </head>
+  <body>
+      
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    <div class="container-md ml-2">
+        <div>
+            <h1 style="color: rgb(83, 81, 81);">Demo Application</h1>
+            <h2 style="color: cornflowerblue;">Because simple is better</h2>
+        </div>
+
+        <div class="row" style="float: center;">
+            <button type="submit" class="btn btn-primary ml-3" style="width: 150px;" id="all_data">All Posts</button>
+            <button type="submit" class="btn btn-primary ml-3" style="width: 150px;" id="last10_data">Last 10 Posts</button>
+            <button type="submit" class="btn btn-primary ml-3" style="width: 150px;" id="first10_data">First 10 Posts</button>
+        </div>
+
+        
+    </div>
+
+    <div class="container mt-5">
+        <table class="table" id="table">
+            <thead>
+                <tr>
+                  <th>UserId</th>
+                  <th>Id</th>
+                  <th>Title</th>
+                  <th>Body</th>
+                </tr>
+            </thead>
+            <tbody id="allData">
+
+            </tbody>
+        </table>
+    </div>
+
+
+    <script>
+        $(document).ready(function(){
+            $('#allData').empty()
+            
+            $("#all_data").click(function(){
+                $.get("https://jsonplaceholder.typicode.com/posts", function(data, status) {        
+
+                        for(var i=0;i<=data.length;i++) {
+                            var x ='<tr><td>' + data[i]['userId']+'</td><td>' + data[i]['id']+'</td><td>' + data[i]['title']+'</td><td>' + data[i]['body']+'</td></tr>'
+                           
+                                $('#allData').append(x);
+                                
+                            }
+                });
+            }) 
+
+            
+            $("#last10_data").click(function(){
+                $('#allData').empty()
+               
+                $.get("https://jsonplaceholder.typicode.com/posts", function(data, status) {        
+                    
+                        var w = data.length
+                        console.log(w);
+                        for(var j=w-10;j<=w;j++) {
+                            var y ='<tr><td>' + data[j]['userId']+'</td><td>' + data[j]['id']+'</td><td>' + data[j]['title']+'</td><td>' + data[j]['body']+'</td></tr>'
+                                
+                                $('#allData').append(y);
+                                
+                            }
+                });
+            }) 
+
+
+            
+
+
+            $("#first10_data").click(function(){
+                $('#allData').empty()
+                
+                $.get("https://jsonplaceholder.typicode.com/posts", function(data, status) {        
+                    
+                        var q=data.length=10;
+                        for(var k=0;k<=q;k++) {
+                            var z ='<tr><td>' + data[k]['userId']+'</td><td>' + data[k]['id']+'</td><td>' + data[k]['title']+'</td><td>' + data[k]['body']+'</td></tr>'
+                                
+                                $('#allData').append(z);
+                                
+                            }
+                });
+            }) 
+
+            
+
+        
+    });
+    </script>
+  </body>
+</html>
