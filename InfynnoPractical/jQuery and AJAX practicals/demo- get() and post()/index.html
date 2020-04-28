@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<body>
+    
+    <input type="text" id="title-box">
+    <input type="text" id="content-box">
+    <button>Submit</button>
+
+    <script>
+        $(document).ready(function(){
+          $("button").click(function(){
+              var title= $('#title-box').val();
+              var body= $('#content-box').val();
+            
+            $.get("http://jsonplaceholder.typicode.com/posts", function(data, status){
+                console.log(data);
+                alert("Data: " + data + "\nStatus: " + status);
+                
+            });
+            
+
+            $.post("http://jsonplaceholder.typicode.com/posts",{ 
+                    'title' : title,
+                    'body' : body
+                }, 
+                function(data,status){
+                alert("Data: " + data + "\nStatus: " + status);
+                console.log(data);
+            });
+
+         }); 
+        });
+    </script>
+</body>
+</html>
