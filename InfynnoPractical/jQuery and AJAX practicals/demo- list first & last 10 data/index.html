@@ -46,21 +46,40 @@
             <tbody id="allData">
 
             </tbody>
+            <tbody id="firstData">
+
+            </tbody>
+            <tbody id="lastData">
+
+            </tbody>
         </table>
     </div>
 
 
     <script>
         $(document).ready(function(){
-            $('#allData').empty()
+            
             
             $("#all_data").click(function(){
+                $('#firstData').empty()
+                $('#lastData').empty()
                 $.get("https://jsonplaceholder.typicode.com/posts", function(data, status) {        
-
-                        for(var i=0;i<=data.length;i++) {
-                            var x ='<tr><td>' + data[i]['userId']+'</td><td>' + data[i]['id']+'</td><td>' + data[i]['title']+'</td><td>' + data[i]['body']+'</td></tr>'
+                        
+                        for(var i=0;i<data.length;i++) {
+                            
+                            var x ='<tr id="row'+i+'"><td>' +data[i]['userId']+'</td><td>' + data[i]['id']+'</td><td>' + data[i]['title']+'</td><td>' + data[i]['body']+'</td></tr>'
                            
                                 $('#allData').append(x);
+                                if(i%2==0)
+                                {
+                                    $('#row'+i).css("background-color","blue")
+                                }
+                                else{
+                                    $('#row'+i).css("background-color","yellow")
+                                }
+                               
+                                // $("tr:even").css("background-color","blue"); 
+                                // $("tr:odd").css("background-color","yellow");
                                 
                             }
                 });
@@ -69,36 +88,53 @@
             
             $("#last10_data").click(function(){
                 $('#allData').empty()
+                $('#firstData').empty()
+            
                
                 $.get("https://jsonplaceholder.typicode.com/posts", function(data, status) {        
                     
                         var w = data.length
-                        console.log(w);
-                        for(var j=w-10;j<=w;j++) {
-                            var y ='<tr><td>' + data[j]['userId']+'</td><td>' + data[j]['id']+'</td><td>' + data[j]['title']+'</td><td>' + data[j]['body']+'</td></tr>'
+                        
+                        
+                        for(var j=w-10;j<w;j++) {
+
+                            var y ='<tr id="row'+j+'"><td>' +data[j]['userId']+'</td><td>' + data[j]['id']+'</td><td>' + data[j]['title']+'</td><td>' + data[j]['body']+'</td></tr>'
                                 
                                 $('#allData').append(y);
+                                
+                                if(j%2==0)
+                                {
+                                    $('#row'+j).css("background-color","blue")
+                                }
+                                else{
+                                    $('#row'+j).css("background-color","yellow")
+                                }
                                 
                             }
                 });
             }) 
 
-
             
-
-
             $("#first10_data").click(function(){
                 $('#allData').empty()
+                $('#lastData').empty()
                 
                 $.get("https://jsonplaceholder.typicode.com/posts", function(data, status) {        
                     
                         var q=data.length=10;
-                        for(var k=0;k<=q;k++) {
-                            var z ='<tr><td>' + data[k]['userId']+'</td><td>' + data[k]['id']+'</td><td>' + data[k]['title']+'</td><td>' + data[k]['body']+'</td></tr>'
+                        for(var k=0;k<q;k++) {
+                            var z ='<tr id="row'+k+'"><td>' + data[k]['userId']+'</td><td>' + data[k]['id']+'</td><td>' + data[k]['title']+'</td><td>' + data[k]['body']+'</td></tr>'
                                 
                                 $('#allData').append(z);
+                                if(k%2==0)
+                                {
+                                    $('#row'+k).css("background-color","blue")
+                                }
+                                else{
+                                    $('#row'+k).css("background-color","yellow")
+                                }
                                 
-                            }
+                        }
                 });
             }) 
 
