@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  </head>
+  <body>
+      
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    <div class="container-md ml-2">
+        <div>
+            <h1 style="color: rgb(83, 81, 81);">Demo Application</h1>
+            <h2 style="color: cornflowerblue;">Because simple is better</h2>
+        </div>
+
+        <div class="row" style="float: center;">
+            <button type="submit" class="btn btn-primary ml-3" style="width: 150px;" onclick="getPostData(1)">All Posts</button>
+            <button type="submit" class="btn btn-primary ml-3" style="width: 150px;"  onclick="getPostData(2)">Last 10 Posts</button>
+            <button type="submit" class="btn btn-primary ml-3" style="width: 150px;" onclick="getPostData(3)">First 10 Posts</button>
+        </div>
+
+        
+    </div>
+
+    <div class="container mt-5">
+        <table class="table" id="table">
+            <thead>
+                <tr>
+                  <th>UserId</th>
+                  <th>Id</th>
+                  <th>Title</th>
+                  <th>Body</th>
+                </tr>
+            </thead>
+            <tbody id="Alldata">
+
+            </tbody>
+            
+        </table>
+    </div>
+
+
+    <script>
+            
+            
+            function getPostData(type)
+            {
+                switch (type)
+                {
+                    case 1:
+                    $.get("https://jsonplaceholder.typicode.com/posts", function(data, status) {
+                        fillData(data)
+                    });
+                    break
+
+                    case 2:
+                    $.get("https://jsonplaceholder.typicode.com/posts", function(data, status) {        
+                    var Last_Data = data.slice(data.length-10,data.length)
+                    fillData(Last_Data)
+                    }) 
+                    break
+
+                    case 3:
+                    $.get("https://jsonplaceholder.typicode.com/posts", function(data, status) {        
+                    var First_Data = data.slice(0,10)
+                    fillData(First_Data)
+                    });
+                    break
+                }
+            }
+
+            function fillData(q)
+            {
+                $('#Alldata').empty();
+                $.each(q, function(i,item) {
+                    
+                    if (i % 2 == 0) {
+                        var color = 'yellow';
+                    }
+                    else{
+                        var color="blue"
+                    }
+                    var all = '<tr style="background-color:'+color+'"><td>' + item.userId + '</td><td>' + item.id + '</td><td>' + item.title + '</td><td>' + item.body + '</td></tr>';
+                    $('#Alldata').append(all);
+                    
+                    
+                });
+            }
+        
+    </script>
+  </body>
+</html>
