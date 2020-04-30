@@ -56,28 +56,24 @@
             
             function getPostData(type)
             {
-                switch (type)
+                $.get("https://jsonplaceholder.typicode.com/posts", function(data, status) {       
+                    switch (type)
                 {
                     case 1:
-                    $.get("https://jsonplaceholder.typicode.com/posts", function(data, status) {
-                        fillData(data)
-                    });
+                    fillData(data)
                     break
 
                     case 2:
-                    $.get("https://jsonplaceholder.typicode.com/posts", function(data, status) {        
                     var Last_Data = data.slice(data.length-10,data.length)
                     fillData(Last_Data)
-                    }) 
                     break
 
                     case 3:
-                    $.get("https://jsonplaceholder.typicode.com/posts", function(data, status) {        
                     var First_Data = data.slice(0,10)
                     fillData(First_Data)
-                    });
                     break
                 }
+                });
             }
 
             function fillData(q)
@@ -93,8 +89,6 @@
                     }
                     var all = '<tr style="background-color:'+color+'"><td>' + item.userId + '</td><td>' + item.id + '</td><td>' + item.title + '</td><td>' + item.body + '</td></tr>';
                     $('#Alldata').append(all);
-                    
-                    
                 });
             }
         
